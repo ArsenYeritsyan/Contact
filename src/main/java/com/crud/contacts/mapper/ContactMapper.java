@@ -7,7 +7,6 @@ import com.crud.contacts.model.dto.ContactDTO;
 import com.crud.contacts.model.dto.EmailDTO;
 import com.crud.contacts.model.dto.PhoneNumberDTO;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface ContactMapper {

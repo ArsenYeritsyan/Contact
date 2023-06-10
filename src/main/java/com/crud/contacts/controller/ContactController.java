@@ -9,7 +9,6 @@ import com.crud.contacts.model.dto.ContactDTO;
 import com.crud.contacts.model.dto.EmailDTO;
 import com.crud.contacts.model.dto.PhoneNumberDTO;
 import com.crud.contacts.service.ContactService;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
