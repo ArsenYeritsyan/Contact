@@ -1,19 +1,4 @@
 ## Stage 1: Build the application with Maven
-#FROM maven:3.8.4-openjdk-17 AS build
-#WORKDIR /app
-#COPY pom.xml .
-#RUN mvn dependency:go-offline
-#COPY src ./src
-#RUN mvn clean package
-#
-## Stage 2: Create a lightweight Docker image
-#FROM adoptopenjdk/openjdk17:alpine-jre
-#WORKDIR /app
-#COPY --from=build /app/target/contacts.jar ./app.jar
-#EXPOSE 8080
-#CMD ["java", "-jar", "app.jar"]
-
-## Stage 1: Build the application with Maven
 # Use a base image with Java and Maven installed
 FROM maven:3.8.4-openjdk-17-slim AS build
 
