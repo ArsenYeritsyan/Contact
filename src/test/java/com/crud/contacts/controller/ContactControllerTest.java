@@ -10,8 +10,6 @@ import com.crud.contacts.model.dto.ContactDTO;
 import com.crud.contacts.model.dto.EmailDTO;
 import com.crud.contacts.model.dto.PhoneNumberDTO;
 import com.crud.contacts.service.ContactService;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

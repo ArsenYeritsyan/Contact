@@ -10,9 +10,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
-//@Component
 public interface ContactMapper {
-    ContactMapper INSTANCE = Mappers.getMapper(ContactMapper.class);
 
     ContactDTO toContactDTO(Contact contact);
 
@@ -25,8 +23,4 @@ public interface ContactMapper {
     EmailDTO toEmailDTO(Email email);
 
     Email toEmail(EmailDTO emailDTO);
-
-    default ContactMapper getInstance() {
-        return INSTANCE;
-    }
 }
