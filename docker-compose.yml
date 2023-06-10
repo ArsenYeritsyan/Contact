@@ -1,0 +1,25 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8
+    ports:
+      - '3360:3360'
+    environment:
+      #      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=contactsdb
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mysql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/contactsdb?useSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      #      - SPRING_DATASOURCE_PASSWORD=
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.cj.jdbc.Driver
+      - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.MySQL8Dialect
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+      - SPRING_JPA_SHOW_SQL=true
