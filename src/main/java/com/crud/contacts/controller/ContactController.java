@@ -9,7 +9,6 @@ import com.crud.contacts.model.dto.ContactDTO;
 import com.crud.contacts.model.dto.EmailDTO;
 import com.crud.contacts.model.dto.PhoneNumberDTO;
 import com.crud.contacts.service.ContactService;
-import io.swagger.annotations.Api;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -22,7 +21,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/contacts")
-@Api(tags = "Contacts API")
 public class ContactController {
     private final ContactService contactService;
     private final ContactMapper contactMapper;
