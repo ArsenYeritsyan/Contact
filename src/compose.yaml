@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    environment:
+      - spring.datasource.url=jdbc:mysql://mysql:3360/contactsdb?useSSL=false
+      - spring.datasource.username=root
+      - spring.datasource.password=
+      - spring.jpa.hibernate.ddl-auto=update
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - 3360:3360
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=contactsdb
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=
