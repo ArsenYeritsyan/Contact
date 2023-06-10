@@ -6,6 +6,11 @@ services:
       - '3306:3306'
     environment:
       - MYSQL_DATABASE=contactsdb
+    command: --skip-password
+    volumes:
+      - ./mysql-init:/docker-entrypoint-initdb.d
+    networks:
+      - default
 
   app:
     build:
@@ -22,3 +27,8 @@ services:
       - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.MySQL8Dialect
       - SPRING_JPA_HIBERNATE_DDL_AUTO=create
       - SPRING_JPA_SHOW_SQL=true
+    networks:
+      - default
+
+networks:
+  default:

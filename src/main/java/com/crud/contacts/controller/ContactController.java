@@ -1,6 +1,6 @@
 package com.crud.contacts.controller;
 
-import com.crud.contacts.config.ContactMapper;
+import com.crud.contacts.mapper.ContactMapper;
 import com.crud.contacts.config.ContactSpecification;
 import com.crud.contacts.model.Contact;
 import com.crud.contacts.model.Email;
@@ -9,6 +9,7 @@ import com.crud.contacts.model.dto.ContactDTO;
 import com.crud.contacts.model.dto.EmailDTO;
 import com.crud.contacts.model.dto.PhoneNumberDTO;
 import com.crud.contacts.service.ContactService;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -52,6 +53,12 @@ public class ContactController {
         return ResponseEntity.ok().body(contacts);
     }
 
+    @GetMapping("/contacts")
+    public ResponseEntity<List<Contact>> searchContacts(@RequestParam("search") String searchTerm) {
+        Specification<Contact> searchSpec = ContactSpecification.searchContacts(searchTerm);
+        List<Contact> contacts = contactService.searchContacts(searchSpec);
+        return ResponseEntity.ok(contacts);
+    }
 
     @GetMapping("/contacts")
     public ResponseEntity<List<Contact>> searchContacts(
@@ -152,4 +159,5 @@ public class ContactController {
         contactService.deleteEmail(contactId, emailId);
         return ResponseEntity.noContent().build();
     }
+
 }

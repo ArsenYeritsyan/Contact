@@ -1,6 +1,6 @@
 package com.crud.contacts.controller;
 
-import com.crud.contacts.config.ContactMapper;
+import com.crud.contacts.mapper.ContactMapper;
 import com.crud.contacts.config.ContactSpecification;
 import com.crud.contacts.exception.RestExceptionHandler;
 import com.crud.contacts.model.Contact;

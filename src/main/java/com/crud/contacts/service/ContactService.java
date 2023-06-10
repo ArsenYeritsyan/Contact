@@ -7,6 +7,7 @@ import com.crud.contacts.model.PhoneNumber;
 import com.crud.contacts.repo.ContactRepository;
 import com.crud.contacts.repo.EmailRepository;
 import com.crud.contacts.repo.PhoneNumberRepository;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -108,7 +109,7 @@ public class ContactService {
             return email;
         })).orElseThrow(() -> new NotFoundException("Contact or Email not found"));
     }
-
+    @Cacheable("contacts")
     public List<Contact> searchContacts(Specification<Contact> spec) {
         return contactRepository.findAll(spec);
     }

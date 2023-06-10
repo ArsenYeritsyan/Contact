@@ -31,4 +31,13 @@ public class ContactSpecification {
         return (root, query, criteriaBuilder) ->
                 criteriaBuilder.like(criteriaBuilder.lower(root.get("lastName")), "%" + lastName.toLowerCase() + "%");
     }
+
+    public static Specification<Contact> searchContacts(String searchTerm) {
+        return (root, query, criteriaBuilder) -> criteriaBuilder.or(
+                criteriaBuilder.like(root.get("firstName"), "%" + searchTerm + "%"),
+                criteriaBuilder.like(root.get("lastName"), "%" + searchTerm + "%"),
+                criteriaBuilder.like(root.join("phoneNumbers").get("phoneNumber"), "%" + searchTerm + "%"),
+                criteriaBuilder.like(root.join("emails").get("email"), "%" + searchTerm + "%")
+        );
+    }
 }

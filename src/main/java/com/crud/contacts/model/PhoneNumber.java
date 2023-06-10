@@ -19,16 +19,7 @@ public class PhoneNumber {
     @Enumerated(EnumType.STRING)
     private Label label;
 
-    public PhoneNumber(Long id, Contact contact, String phoneNumber, Label label) {
-        this.id = id;
-        this.contact = contact;
-        this.phoneNumber = phoneNumber;
-        this.label = label;
-    }
-
-    public PhoneNumber() {
-
-    }
+    public PhoneNumber() {}
 
     public Long getId() {
         return id;
