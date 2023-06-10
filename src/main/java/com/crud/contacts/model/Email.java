@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "emails")
 public class Email {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,7 +21,6 @@ public class Email {
 
 
     public Email() {
-
     }
 
     public Long getId() {

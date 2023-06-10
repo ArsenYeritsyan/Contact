@@ -1,8 +1,18 @@
 package com.crud.contacts.model.dto;
 
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 public class EmailDTO {
     private Long id;
+
+    @NotNull
+    @Pattern(regexp = "\\\\S{3,}",message = "Invalid email")
     private String email;
+
+    @NotNull
+    @Pattern(regexp = "^[.@]+$", message = "Invalid domain name")
     private String domainName;
 
     public Long getId() {
