@@ -3,9 +3,10 @@ services:
   mysql:
     image: mysql:8
     ports:
-      - '3306:33606'
+      - '3306:3306'
     environment:
       - MYSQL_DATABASE=contactsdb
+
   app:
     build:
       context: .
