@@ -52,12 +52,12 @@ public class ContactController {
         return ResponseEntity.ok().body(contacts);
     }
 
-    @GetMapping("/contacts")
-    public ResponseEntity<List<Contact>> searchContacts(@RequestParam("search") String searchTerm) {
-        Specification<Contact> searchSpec = ContactSpecification.searchContacts(searchTerm);
-        List<Contact> contacts = contactService.searchContacts(searchSpec);
-        return ResponseEntity.ok(contacts);
-    }
+//    @GetMapping("/contacts")
+//    public ResponseEntity<List<Contact>> searchContacts(@RequestParam("search") String searchTerm) {
+//        Specification<Contact> searchSpec = ContactSpecification.searchContacts(searchTerm);
+//        List<Contact> contacts = contactService.searchContacts(searchSpec);
+//        return ResponseEntity.ok(contacts);
+//    }
 
     @GetMapping("/contacts")
     public ResponseEntity<List<Contact>> searchContacts(
